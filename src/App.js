@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Article from "./Article";
+import { getNewsApi } from "./utils";
+import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: []
+    };
+  }
+
+  componentDidMount = async () => {
+    const articles = await getNewsApi();
+    this.setState({
+      articles
+    });
+  };
+
   render() {
+    const { articles } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Latest Articles</h1>
+        <i style={{ fontSize: "5rem" }} class="fas fa-newspaper" />
+        <div className="card-columns">
+          {articles.map((article, index) => {
+            return <Article key={index} article={article} />;
+          })}
+        </div>
       </div>
     );
   }
