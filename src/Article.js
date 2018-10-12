@@ -7,7 +7,7 @@ const Article = ({
     <div className="card">
       <a href={url} target="_blank" rel="noopener noreferrer">
         <img
-          class="card-img-top"
+          className="card-img-top"
           src={
             urlToImage
               ? urlToImage
@@ -16,12 +16,12 @@ const Article = ({
           alt="Article"
         />
       </a>
-      <div class="card-body">
-        <h5 class="card-title">{title}</h5>
-        <p class="card-text">
-          <small class="text-muted">{`Source: ${author ? author : "-"}`}</small>
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">
+          <small className="text-muted">{`Source: ${author ? author : "-"}`}</small>
           <br />
-          <small class="text-muted">{`Published at: ${publishedAt}`}</small>
+          <small className="text-muted">{`Published at: ${publishedAt}`}</small>
         </p>
       </div>
     </div>

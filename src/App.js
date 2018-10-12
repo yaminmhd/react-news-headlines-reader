@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Latest Articles</h1>
-        <i style={{ fontSize: "5rem" }} class="fas fa-newspaper" />
+        <i style={{ fontSize: "5rem" }} className="fas fa-newspaper" />
         <div className="card-columns">
           {articles.map((article, index) => {
             return <Article key={index} article={article} />;
